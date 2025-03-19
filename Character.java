@@ -26,22 +26,25 @@ public class Character {
      * Interactively asks and initialise values for a Character object
      */
     public void init() {
+        @SuppressWarnings("resource")
         Scanner scan = new Scanner(System.in) ;
-        System.out.println("Enter name");
-        this.name = scan.nextLine() ;
-        System.out.print("Enter base health value : ");
-        this.base_health = scan.nextInt() ;
-        this.hp = this.base_health ;
-        System.out.print("Enter skill points value : ");
-        this.sp = scan.nextInt() ;
-        System.out.print("Enter strength value : ");
-        this.strength = scan.nextInt() ;
-        System.out.print("Enter power value : ");
-        this.power = scan.nextInt() ;
-        System.out.print("Enter defense value : ");
-        this.defense = scan.nextInt() ;
-        System.out.print("Enter special defense value : ");
-        this.special_defense = scan.nextInt() ;
+        scan.nextLine() ;
+            System.out.println("Enter name");
+            this.name = scan.nextLine() ;
+            System.out.print("Enter base health value : ");
+            this.base_health = scan.nextInt() ;
+            this.hp = this.base_health ;
+            System.out.print("Enter skill points value : ");
+            this.sp = scan.nextInt() ;
+            System.out.print("Enter strength value : ");
+            this.strength = scan.nextInt() ;
+            System.out.print("Enter power value : ");
+            this.power = scan.nextInt() ;
+            System.out.print("Enter defense value : ");
+            this.defense = scan.nextInt() ;
+            System.out.print("Enter special defense value : ");
+            this.special_defense = scan.nextInt() ;
+        
     }
 
     // setters and getters
