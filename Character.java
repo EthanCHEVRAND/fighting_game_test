@@ -238,7 +238,7 @@ public class Character {
         s += "\n" + this.hp + "/" + this.base_health + " | skill points : " + this.sp;
         s +=  "\nStrength : " + this.strength + " | Power : " + this.power ;
         s += "\nDefense : " + this.defense + " | Special defense : " + this.special_defense ;
-        s += "\nLuck : " + this.luck ;
+        s += "\nLuck : " + Math.round(this.luck*100) / 100.0 ;
         return s ;
     }
 }

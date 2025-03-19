@@ -6,8 +6,14 @@ class Game {
         perso2.init() ;
         System.out.println(perso);
         System.out.println(perso2);
-        perso2.attack(perso, perso2.physicalAttack(perso)) ;
+        perso.attack(perso2, perso.physicalAttack(perso2)) ;
         System.out.println(perso) ;
+        System.out.println(perso2);
+        perso2.attack(perso, perso2.fireArrow(perso)) ;
+        System.out.println(perso) ;
+        System.out.println(perso2);
+        perso2.passiveSkill() ;
+        System.out.println(perso2);
     }
 
     public static void endTurnActions() {
