@@ -1,7 +1,7 @@
 class Game {
     public static void main (String[] args) {
         Character perso = new Character() ;
-        Character perso2 = new Character() ;
+        Archer perso2 = new Archer() ;
         perso.init() ;
         perso2.init() ;
         System.out.println(perso);
