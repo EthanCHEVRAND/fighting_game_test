@@ -15,6 +15,7 @@ public class Character {
     private int power ; // for skills
     private int defense ;
     private int special_defense ;
+    private float luck ;
 
     /**
      * Default Character builder
@@ -29,7 +30,7 @@ public class Character {
         @SuppressWarnings("resource")
         Scanner scan = new Scanner(System.in) ;
         scan.nextLine() ;
-            System.out.println("Enter name");
+            System.out.print("Enter name : ");
             this.name = scan.nextLine() ;
             System.out.print("Enter base health value : ");
             this.base_health = scan.nextInt() ;
@@ -44,6 +45,8 @@ public class Character {
             this.defense = scan.nextInt() ;
             System.out.print("Enter special defense value : ");
             this.special_defense = scan.nextInt() ;
+            System.out.print("Enter luck value (between 0 and 1) : ") ;
+            this.luck = scan.nextFloat() ;
         
     }
 
@@ -103,6 +106,14 @@ public class Character {
      */
     public void setSpecialDefense(int spe_def) {
         this.special_defense = spe_def ;
+    }
+
+    /**
+     * Sets luck value
+     * @param l
+     */
+    public void setLuck(float l) {
+        this.luck = l ;
     }
 
     /**
@@ -169,6 +180,14 @@ public class Character {
         return this.special_defense ;
     }
 
+    /**
+     * Returns luck value
+     * @return this.luck
+     */
+    public float getLuck() {
+        return this.luck ;
+    }
+
 
     // Methods
 
@@ -191,7 +210,13 @@ public class Character {
     }
 
     public void attack(Character target, int damage) {
-        target.setHealth(target.getHealth() - damage) ;
+        Random rand = new Random() ;
+        if (rand.nextDouble() > this.luck) {
+            target.setHealth(target.getHealth() - damage) ;
+            System.out.println(target.name + " lost " + damage + "hp !");
+        }
+        else
+            System.out.println("The attack missed...");
     }
 
     public String toString() {
