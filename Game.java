@@ -9,4 +9,8 @@ class Game {
         perso2.attack(perso, perso2.physicalAttack(perso)) ;
         System.out.println(perso) ;
     }
+
+    public static void endTurnActions() {
+        // TODO do this function when the actions are defined
+    }
 }

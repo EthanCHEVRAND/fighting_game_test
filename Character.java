@@ -15,7 +15,7 @@ public class Character {
     private int power ; // for skills
     private int defense ;
     private int special_defense ;
-    private float luck ;
+    private double luck ;
 
     /**
      * Default Character builder
@@ -29,7 +29,7 @@ public class Character {
     public void init() {
         @SuppressWarnings("resource")
         Scanner scan = new Scanner(System.in) ;
-        scan.nextLine() ;
+        // scan.nextLine() ;
             System.out.print("Enter name : ");
             this.name = scan.nextLine() ;
             System.out.print("Enter base health value : ");
@@ -51,6 +51,8 @@ public class Character {
     }
 
     // setters and getters
+
+    // TODO set min and max values for each setter
 
     /**
      * Sets name
@@ -112,7 +114,7 @@ public class Character {
      * Sets luck value
      * @param l
      */
-    public void setLuck(float l) {
+    public void setLuck(double l) {
         this.luck = l ;
     }
 
@@ -184,13 +186,23 @@ public class Character {
      * Returns luck value
      * @return this.luck
      */
-    public float getLuck() {
+    public double getLuck() {
         return this.luck ;
     }
 
 
     // Methods
 
+    public boolean isDead() {
+        return this.hp <= 0 ;
+    }
+
+    public void abandon() {
+        this.hp = 0 ;
+        System.out.println("You abandonned");
+    }
+
+    // TODO add javadoc
     public int physicalAttack(Character target) {
         Random rand = new Random() ;
         double randomDouble = rand.nextDouble() ;
@@ -200,6 +212,7 @@ public class Character {
         return (int)((this.strength - target.getDefense()) * randomDouble) ;
     }
 
+    // TODO add javadoc
     public int specialAttack(Character target) {
         Random rand = new Random() ;
         double randomDouble = rand.nextDouble() ;
@@ -209,6 +222,7 @@ public class Character {
         return (int)((this.power - target.getSpecialDefense()) * randomDouble) ;
     }
 
+    // TODO add javadoc
     public void attack(Character target, int damage) {
         Random rand = new Random() ;
         if (rand.nextDouble() > this.luck) {
@@ -224,9 +238,7 @@ public class Character {
         s += "\n" + this.hp + "/" + this.base_health + " | skill points : " + this.sp;
         s +=  "\nStrength : " + this.strength + " | Power : " + this.power ;
         s += "\nDefense : " + this.defense + " | Special defense : " + this.special_defense ;
-        s += "\n" ;
-        for (int i = 0 ; i < 40+this.name.length() ; i++)
-            s += "~" ;
+        s += "\nLuck : " + this.luck ;
         return s ;
     }
 }
