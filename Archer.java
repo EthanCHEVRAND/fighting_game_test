@@ -3,6 +3,16 @@ import java.util.Scanner;
 
 // TODO add javadoc
 public class Archer extends Character {
+    // TODO add the requirements to setters and init
+    /*
+     * Characteristics : 
+     * Low hp amount (90-120) with high luck stat (0.25-0.30)
+     * sp -> 45-60
+     * Moderate strength (35-40) with high power (40-50)
+     * Low defense (5-10) with moderate special_defense (10-15)
+     * Max arrows : 10-15
+     */
+
     private int nbMaxArrow ;
     private int nbArrow ;
 
@@ -71,6 +81,12 @@ public class Archer extends Character {
             System.out.println("No arrow left or not enough skill points...");
             return 0 ;
         }    
+    }
+
+    public void trap(Character target) {
+        if (this.getSkillPoints() >= 15) {
+            // makes the opponent stun for one turn
+        }
     }
 
     public boolean passiveSkill() {

@@ -2,11 +2,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * CHaracter management for inline fighting game
+ * Character management for inline fighting game
  * @author ZeSpatule
  * @version a.1.0
  */
 public class Character {
+    // TODO add the requirements to setters and init
+    /*
+     * Stats requirements : 
+     * hp -> 90-200
+     * base sp -> 30 - 60
+     * strength -> 30-50
+     * power -> 30-50
+     * defense -> 5-25
+     * special defense -> 5-25
+     * luck -> 0-0.30
+     */
+
     private String name ;
     private int base_health ;
     private int hp ; // health points
@@ -16,6 +28,8 @@ public class Character {
     private int defense ;
     private int special_defense ;
     private double luck ;
+    private boolean canPlay ;
+    private int stunDuration ; // a counter to know when to reverse a stun (trap/charged attack)
 
     /**
      * Default Character builder
@@ -47,6 +61,8 @@ public class Character {
             this.special_defense = scan.nextInt() ;
             System.out.print("Enter luck value (between 0 and 1) : ") ;
             this.luck = scan.nextFloat() ;
+            this.canPlay = true ;
+            this.stunDuration = 0 ;
         
     }
 
@@ -116,6 +132,22 @@ public class Character {
      */
     public void setLuck(double l) {
         this.luck = l ;
+    }
+
+    /**
+     * Sets the canPlay value
+     * @param value
+     */
+    public void setCanPlay(boolean value) {
+        this.canPlay = value ;
+    }
+
+    /**
+     * Sets the stun counter
+     * @param value
+     */
+    public void setStunDuration(int value) {
+        this.stunDuration = value ;
     }
 
     /**
@@ -190,8 +222,24 @@ public class Character {
         return this.luck ;
     }
 
+    /**
+     * Returns the stun counter
+     * @return this.stunDuration
+     */
+    public int getStunDuration() {
+        return this.stunDuration ;
+    }
+
 
     // Methods
+
+    /**
+     * Returns true if the character is able to play during this turn
+     * @return
+     */
+    public boolean canPlay() {
+        return this.canPlay ;
+    }
 
     /**
      * Returns if the Character is dead
@@ -214,6 +262,14 @@ public class Character {
      */
     public void getSpBack() {
         this.setSkillPoints(this.getSkillPoints() + 5);
+    }
+
+    /**
+     * Creates a nice box around the information given
+     * @param info
+     */
+    public void displayInformation(String info) {
+        return ;
     }
 
     /**
