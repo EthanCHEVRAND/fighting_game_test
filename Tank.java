@@ -148,7 +148,8 @@ public class Tank extends Character {
 
     @Override
     public void init() {
-        System.out.println("Hp (175-200) | Skill points (30-45)\nStrength (35-40) | Power (30-35)\nDefense (20-25) | Special defense (10-15)\nMax shield (30-50)\nLuck (0-0.02)");
+        System.out.println("Hp (175-200) | Skill points (30-45)\nStrength (35-40) | Power (30-35)\nDefense (20-25) | Special defense (10-15)\\n" + //
+                        "Luck (0-0.02)\nMax shield (30-50)");
         super.init() ;
 
         @SuppressWarnings({ "ressource", "resource" })
@@ -181,6 +182,7 @@ public class Tank extends Character {
         }
     }
 
+    // TODO make the stun system
     public int chargedAttack(Character target) {
         if (this.getSkillPoints() >= 15) {
             Random rand = new Random() ;
