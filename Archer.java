@@ -2,6 +2,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 // TODO add javadoc
+/**
+ * Character's subclass
+ * Managing class for Archer ingame class
+ * @author ZeSpatule
+ */
 public class Archer extends Character {
     // TODO add the requirements to setters and init
     /*

@@ -1,6 +1,10 @@
 import java.util.Random;
 import java.util.Scanner;
-
+/**
+ * Character's subclass
+ * Managing class for Tank ingame class
+ * @author ZeSpatule
+ */
 public class Tank extends Character {
     // TODO add the requirements to setters and init
     /*
@@ -73,5 +77,15 @@ public class Tank extends Character {
             System.out.println("Not enough skill points...");
             return 0 ;
         }
+    }
+
+    @Override
+    public String toString() {
+        String s = super.toString() ;
+        s += " | Shield : " + this.getShield() + "/" + this.getMaxShield() ;
+        s += "\n" ;
+        for (int i = 0 ; i < 40+this.getName().length() ; i++)
+            s += "~" ;
+        return s ;
     }
 }
