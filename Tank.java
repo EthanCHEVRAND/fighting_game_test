@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Tank extends Character {
     /*
      * Characteristics : 
-     * High hp amount (175-200) with very low luck stat (0-0.2)
+     * High hp amount (175-200) with very low luck stat (0-0.02)
      * sp -> 30-45
      * Moderate strength (35-40) with low power (30-35)
      * high defense (20-25) with moderate special_defense (10-15)
@@ -92,6 +92,21 @@ public class Tank extends Character {
     }
 
     /**
+     * Sets luck to proper value
+     * @param l
+     */
+    @Override
+    public void setLuck(double l) {
+        if (l < 0) {
+            super.setLuck(0) ;
+        } else if (l > 0.02) {
+            super.setLuck(0.02) ;
+        } else {
+            super.setLuck(l);
+        }
+    }
+
+    /**
      * Sets max shield to proper value
      * @param value
      */
@@ -133,7 +148,7 @@ public class Tank extends Character {
 
     @Override
     public void init() {
-        System.out.println("Hp (175-200) | Skill points (30-45)\nStrength (35-40) | Power (30-35)\nDefense (20-25) | Special defense (10-15)\nMax shield (30-50)");
+        System.out.println("Hp (175-200) | Skill points (30-45)\nStrength (35-40) | Power (30-35)\nDefense (20-25) | Special defense (10-15)\nMax shield (30-50)\nLuck (0-0.02)");
         super.init() ;
 
         @SuppressWarnings({ "ressource", "resource" })
@@ -149,6 +164,7 @@ public class Tank extends Character {
         this.setPower(this.getPower());
         this.setDefense(this.getPower());
         this.setSpecialDefense(this.getSpecialDefense());
+        this.setLuck(this.getLuck());
         System.out.println("--------------------- Tank created ---------------------\n");
     }
 
