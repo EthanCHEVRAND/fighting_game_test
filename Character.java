@@ -48,7 +48,6 @@ public class Character {
             this.name = scan.nextLine() ;
             System.out.print("Enter base health value : ");
             this.base_health = scan.nextInt() ;
-            this.hp = this.base_health ;
             System.out.print("Enter skill points value : ");
             this.sp = scan.nextInt() ;
             System.out.print("Enter strength value : ");
