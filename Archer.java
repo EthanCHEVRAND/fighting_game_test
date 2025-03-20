@@ -116,13 +116,16 @@ public class Archer extends Character {
     }
 
     @Override
-    public void attack(Character target, int damage) {
-        if (nbArrow > 0)
+    public boolean attack(Character target, int damage) {
+        if (nbArrow > 0) {
             super.attack(target, damage) ;
+            this.nbArrow-- ;
+            return true ;
+        }
         else
             System.out.println("No arrows left...");
+            return false ;
 
-        this.nbArrow-- ;
     }
 
     @Override

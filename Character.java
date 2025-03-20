@@ -305,7 +305,7 @@ public class Character {
      * @param target
      * @param damage
      */
-    public void attack(Character target, int damage) {
+    public boolean attack(Character target, int damage) {
         Random rand = new Random() ;
         if (rand.nextDouble() > this.luck) {
             target.setHealth(target.getHealth() - damage) ;
@@ -313,6 +313,7 @@ public class Character {
         }
         else
             System.out.println("The attack missed...");
+        return true ;
     }
 
     public String toString() {

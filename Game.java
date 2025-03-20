@@ -1,4 +1,5 @@
 class Game {
+    private int nextAttack ; // stores the next attack damages (useful for stuns)
     public static void main (String[] args) {
         Tank perso = new Tank() ;
         Archer perso2 = new Archer() ;
