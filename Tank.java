@@ -84,7 +84,7 @@ public class Tank extends Character {
     public void setSpecialDefense(int spe_def) {
         if (spe_def < 10) {
             super.setSpecialDefense(10);
-        } if (spe_def > 15) {
+        } else if (spe_def > 15) {
             super.setSpecialDefense(15);
         } else {
             super.setSpecialDefense(spe_def);
@@ -155,11 +155,13 @@ public class Tank extends Character {
         Scanner scan = new Scanner(System.in) ;
 
         System.out.print("Enter the maximum possible shield value : ");
-        this.setMaxShield(scan.nextInt()) ;
+        int value = scan.nextInt() ;
+        this.setMaxShield(value) ;
         this.shield = 0 ;
 
         // makes the stats work properly with the class
         this.setBaseHealth(this.getBaseHealth());
+        this.setHealth(this.getBaseHealth());
         this.setStrength(this.getStrength());
         this.setPower(this.getPower());
         this.setDefense(this.getPower());
