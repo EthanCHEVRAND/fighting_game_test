@@ -248,6 +248,7 @@ public class Archer extends Character {
         s += "\n" ;
         for (int i = 0 ; i < 40+this.getName().length() ; i++)
             s += "~" ;
+        s += "\n" ;
         return s ;
     }
 
