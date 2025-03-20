@@ -87,6 +87,14 @@ public class Character {
     }
 
     /**
+     * Sets the base hp value
+     * @param bhp
+     */
+    public void setBaseHealth(int bhp) {
+        this.base_health = bhp ;
+    }
+
+    /**
      * Sets skill points value
      * @param skill_points
      */

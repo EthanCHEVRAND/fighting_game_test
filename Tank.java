@@ -35,6 +35,17 @@ public class Tank extends Character {
         System.out.println("--------------------- Tank created ---------------------\n");
     }
 
+    @Override
+    public void setBaseHealth(int bhp) {
+        if (bhp < 175) {
+            super.setBaseHealth(175);
+        } else if (bhp > 200) {
+            super.setBaseHealth(200);
+        } else {
+            super.setBaseHealth(bhp);
+        }
+    }
+
     public void setMaxShield(int value) {
         this.maxShield = value ;
     }
