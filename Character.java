@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Base Character class
+ * CHaracter management for inline fighting game
  * @author ZeSpatule
  * @version a.1.0
  */
@@ -193,16 +193,34 @@ public class Character {
 
     // Methods
 
+    /**
+     * Returns if the Character is dead
+     * @return this.hp <= 0
+     */
     public boolean isDead() {
         return this.hp <= 0 ;
     }
 
+    /**
+     * Kills the player who is giving up by setting their hp to 0 to make the main loop stop
+     */
     public void abandon() {
         this.hp = 0 ;
         System.out.println("You abandonned");
     }
 
-    // TODO add javadoc
+    /**
+     * At the end of the turn, makes the Character get 5 sp back
+     */
+    public void getSpBack() {
+        this.setSkillPoints(this.getSkillPoints() + 5);
+    }
+
+    /**
+     * Calculates the damage done with a physical attack to a certain target
+     * @param target
+     * @return the damage value
+     */
     public int physicalAttack(Character target) {
         Random rand = new Random() ;
         double randomDouble = rand.nextDouble() ;
@@ -212,7 +230,11 @@ public class Character {
         return (int)((this.strength - target.getDefense()) * randomDouble) ;
     }
 
-    // TODO add javadoc
+    /**
+     * Calculates the damage of a special attack (maybe useless)
+     * @param target
+     * @return the damage value
+     */
     public int specialAttack(Character target) {
         Random rand = new Random() ;
         double randomDouble = rand.nextDouble() ;
@@ -222,7 +244,11 @@ public class Character {
         return (int)((this.power - target.getSpecialDefense()) * randomDouble) ;
     }
 
-    // TODO add javadoc
+    /**
+     * Make the action of the attack, so either misses or remove the correct amount of damage
+     * @param target
+     * @param damage
+     */
     public void attack(Character target, int damage) {
         Random rand = new Random() ;
         if (rand.nextDouble() > this.luck) {
