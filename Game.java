@@ -1,6 +1,6 @@
 class Game {
     public static void main (String[] args) {
-        Character perso = new Character() ;
+        Tank perso = new Tank() ;
         Archer perso2 = new Archer() ;
         perso.init() ;
         perso2.init() ;
