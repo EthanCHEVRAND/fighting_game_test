@@ -8,7 +8,6 @@ import java.util.Scanner;
  * @author ZeSpatule
  */
 public class Archer extends Character {
-    // TODO add the requirements to setters and init
     /*
      * Characteristics : 
      * Low hp amount (90-120) with high luck stat (0.25-0.30)
@@ -26,18 +25,6 @@ public class Archer extends Character {
         super() ;
     }
 
-    @Override
-    public void init() {
-        super.init() ;
-
-        @SuppressWarnings("resource")
-        Scanner scan = new Scanner(System.in) ;
-        System.out.print("Enter the maximum amount of arrows : ");
-        this.nbMaxArrow = scan.nextInt() ;
-        this.nbArrow = this.nbMaxArrow ;
-        System.out.println("-------------------- Archer created --------------------\n");
-    }
-
     // Setters and getters
 
     /**
@@ -45,7 +32,13 @@ public class Archer extends Character {
      * @param amount
      */
     public void setNbMaxArrow(int amount) {
-        this.nbMaxArrow = amount ;
+        if (amount < 10) {
+            this.nbMaxArrow = 10 ;
+        } else if (amount > 15) {
+            this.nbMaxArrow = 15 ;
+        } else {
+            this.nbMaxArrow = amount ;
+        }
     }
 
     /**
@@ -53,7 +46,98 @@ public class Archer extends Character {
      * @param amount
      */
     public void setNbArrow(int amount) {
-        this.nbArrow = amount ;
+        if (amount < 0) {
+            this.nbArrow = 0 ;
+        } else if (amount > 15) {
+            this.nbArrow = 15 ;
+        } else {
+            this.nbArrow = amount ;
+        }
+    }
+
+    /**
+     * Sets base health to proper value
+     */
+    @Override
+    public void setBaseHealth(int bhp) {
+        if (bhp < 90) {
+            super.setBaseHealth(90);
+        } else if (bhp > 120) {
+            super.setBaseHealth(120);
+        } else {
+            super.setBaseHealth(bhp);
+        }
+    }
+
+    /**
+     * Sets strength to the proper value
+     */
+    @Override
+    public void setStrength(int str) {
+        if (str < 35) {
+            super.setStrength(35);
+        } else if (str > 40) {
+            super.setStrength(40);
+        } else {
+            super.setStrength(str);
+        }
+    }
+
+    /**
+     * Sets power to proper value
+     */
+    @Override
+    public void setPower(int pow) {
+        if (pow < 40) {
+            super.setPower(40);
+        } else if (pow > 50) {
+            super.setStrength(50);
+        } else {
+            super.setStrength(pow);
+        }
+    }
+
+    /**
+     * Sets defense to proper value
+     */
+    @Override
+    public void setDefense(int def) {
+        if (def < 5) {
+            super.setDefense(5) ;
+        } else if (def > 10) {
+            super.setDefense(10) ;
+        } else {
+            super.setDefense(def) ;
+        }
+    }
+
+    /**
+     * Sets special defense to proper value
+     */
+    @Override
+    public void setSpecialDefense(int spe_def) {
+        if (spe_def < 10) {
+            super.setSpecialDefense(10);
+        } else if (spe_def > 15) {
+            super.setSpecialDefense(15);
+        } else {
+            super.setSpecialDefense(spe_def);
+        }
+    }
+
+    /**
+     * Sets luck to proper value
+     * @param l
+     */
+    @Override
+    public void setLuck(double l) {
+        if (l < 0.25) {
+            super.setLuck(0.25) ;
+        } else if (l > 0.3) {
+            super.setLuck(0.3) ;
+        } else {
+            super.setLuck(l);
+        }
     }
 
     /**
@@ -70,6 +154,30 @@ public class Archer extends Character {
      */
     public int getNbArrow() {
         return this.nbArrow ;
+    }
+
+    @Override
+    public void init() {
+        System.out.println("Hp (90-120) | Skill points (35-50)\nStrength (35-40) | Power (40-50)\nDefense (5-10) | Special defense (10-15)\\n" + //
+                        "Luck (0.25-0.3)\nMax arrows (10-15)");
+        super.init() ;
+
+        @SuppressWarnings("resource")
+        Scanner scan = new Scanner(System.in) ;
+        System.out.print("Enter the maximum amount of arrows : ");
+        int value = scan.nextInt() ;
+        this.setNbMaxArrow(value) ;
+        this.nbArrow = this.nbMaxArrow ;
+
+        // makes the stats work properly with the class
+        this.setBaseHealth(this.getBaseHealth());
+        this.setHealth(this.getBaseHealth());
+        this.setStrength(this.getStrength());
+        this.setPower(this.getPower());
+        this.setDefense(this.getPower());
+        this.setSpecialDefense(this.getSpecialDefense());
+        this.setLuck(this.getLuck());
+        System.out.println("-------------------- Archer created --------------------\n");
     }
 
     // methods
