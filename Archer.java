@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-// TODO add getters and setters + add javadoc
+// TODO add javadoc
 public class Archer extends Character {
     private int nbMaxArrow ;
     private int nbArrow ;
@@ -22,6 +22,42 @@ public class Archer extends Character {
         this.nbArrow = this.nbMaxArrow ;
         System.out.println("-------------------- Archer created --------------------\n");
     }
+
+    // Setters and getters
+
+    /**
+     * Sets the max amount of arrows
+     * @param amount
+     */
+    public void setNbMaxArrow(int amount) {
+        this.nbMaxArrow = amount ;
+    }
+
+    /**
+     * Sets the current amount of arrows available
+     * @param amount
+     */
+    public void setNbArrow(int amount) {
+        this.nbArrow = amount ;
+    }
+
+    /**
+     * Returns the max amount of arrows
+     * @return this.nbMaxArrow
+     */
+    public int getNbMaxArrow() {
+        return this.nbMaxArrow ;
+    }
+
+    /**
+     * Returns the current amount of arrows available
+     * @return this.nbArrow
+     */
+    public int getNbArrow() {
+        return this.nbArrow ;
+    }
+
+    // methods
 
     public int fireArrow(Character target) {
         if (this.nbArrow >= 0 && this.getSkillPoints() >= 15) {
