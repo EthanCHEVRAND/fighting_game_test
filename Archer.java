@@ -91,9 +91,9 @@ public class Archer extends Character {
         if (pow < 40) {
             super.setPower(40);
         } else if (pow > 50) {
-            super.setStrength(50);
+            super.setPower(50);
         } else {
-            super.setStrength(pow);
+            super.setPower(pow);
         }
     }
 
