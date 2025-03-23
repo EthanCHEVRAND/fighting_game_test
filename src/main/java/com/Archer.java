@@ -1,3 +1,5 @@
+package src.main.java.com;
+
 import java.util.Random;
 import java.util.Scanner;
 

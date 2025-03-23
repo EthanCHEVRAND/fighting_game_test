@@ -29,5 +29,12 @@ dependencies {
 }
 
 // Define the main class for the application
-mainClassName = 'Game'
+mainClassName = 'src.main.java.com.Game'
+
+/*
+run {
+    classpath = sourceSets.main.runtimeClasspath  // Utilise le classpath de compilation
+}
+*/
+
 

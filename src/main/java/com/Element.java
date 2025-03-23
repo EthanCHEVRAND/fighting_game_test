@@ -1,3 +1,5 @@
+package src.main.java.com;
+
 /**
  * Management of the elements for a mage
  * @author ZeSpatule

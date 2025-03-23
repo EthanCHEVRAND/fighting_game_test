@@ -1,8 +1,12 @@
+package src.main.java.com;
+
 class Game {
     private int nextAttack ; // stores the next attack damages (useful for stuns)
     private Character active ; // stores the currently playing character
     
     public static void main (String[] args) {
+        System.out.println("Welcome to this fighting template");
+        /* 
         Tank perso = new Tank() ;
         Archer perso2 = new Archer() ;
         perso.init() ;
@@ -17,6 +21,7 @@ class Game {
         System.out.println(perso2);
         perso2.passiveSkill() ;
         System.out.println(perso2);
+        */
     }
 
     public static void endTurnActions() {
