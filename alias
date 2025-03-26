@@ -1,0 +1,1 @@
+alias start_gradle='gradle clean && gradle build && gradle --console plain run'
