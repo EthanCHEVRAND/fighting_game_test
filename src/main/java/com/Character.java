@@ -1,4 +1,4 @@
-package src.main.java.com;
+package com;
 
 import java.util.Random;
 import java.util.Scanner;

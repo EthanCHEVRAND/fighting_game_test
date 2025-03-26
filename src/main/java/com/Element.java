@@ -1,4 +1,4 @@
-package src.main.java.com;
+package com;
 
 /**
  * Management of the elements for a mage
