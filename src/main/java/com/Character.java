@@ -1,5 +1,7 @@
 package com;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -32,6 +34,9 @@ public class Character {
     private double luck ;
     private boolean canPlay ;
     private int stunDuration ; // a counter to know when to reverse a stun (trap/charged attack)
+    private Element element ;
+    private boolean isDefaultElementApplied ; // a boolean to know if the element of the character is always applied to it
+    private List<Element> elementsAppliques ;
 
     /**
      * Default Character builder
@@ -62,8 +67,15 @@ public class Character {
             this.special_defense = scan.nextInt() ;
             System.out.print("Enter luck value (between 0 and 1) : ") ;
             this.luck = scan.nextFloat() ;
+            System.out.print("Element (wip)") ;
+            System.out.print("Is default element applied (0, 1) ? ");
+            int temp = scan.nextInt() ;
+            if (temp == 0) this.isDefaultElementApplied = false ;
+            else if (temp != 0) this.isDefaultElementApplied = true ;
             this.canPlay = true ;
             this.stunDuration = 0 ;
+            this.elementsAppliques = new ArrayList<>() ;
+            if (isDefaultElementApplied) this.elementsAppliques.add(this.element) ;
         
     }
 

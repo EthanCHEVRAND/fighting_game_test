@@ -16,8 +16,6 @@ public class Mage extends Character {
      * Element
      */
 
-     private Element element ;
-
      public Mage() {
      }
 
@@ -122,5 +120,15 @@ public class Mage extends Character {
         this.setSpecialDefense(this.getSpecialDefense());
         this.setLuck(this.getLuck());
         System.out.println("--------------------- Mage created ---------------------\n");
+     }
+
+     @Override
+     public String toString() {
+        String s = super.toString() ;
+        s += "\n" ;
+        for (int i = 0 ; i < 40+this.getName().length() ; i++)
+            s += "~" ;
+        s += "\n" ;
+        return s ;
      }
 }
