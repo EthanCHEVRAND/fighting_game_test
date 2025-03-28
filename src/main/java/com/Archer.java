@@ -160,8 +160,7 @@ public class Archer extends Character {
 
     @Override
     public void init() {
-        System.out.println("Hp (90-120) | Skill points (35-50)\nStrength (35-40) | Power (40-50)\nDefense (5-10) | Special defense (10-15)\\n" + //
-                        "Luck (0.25-0.3)\nMax arrows (10-15)");
+        System.out.println("Hp (90-120) | Skill points (35-50)\nStrength (35-40) | Power (40-50)\nDefense (5-10) | Special defense (10-15)\n" +     "Luck (0.25-0.3)\nMax arrows (10-15)");
         super.init() ;
 
         @SuppressWarnings("resource")

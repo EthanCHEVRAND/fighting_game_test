@@ -26,6 +26,9 @@ dependencies {
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
+
+    // Use Jackson to make and read JSON files
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
 }
 
 // Define the main class for the application

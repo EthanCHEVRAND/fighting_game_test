@@ -1,0 +1,21 @@
+public class JsonBuilder {
+    private static final ObjectMapper objectMapper = new ObjectMapper() ;
+    
+    public static <T> void serializeToJson(T object, String filPath) {
+        try {
+            objectMapper.writeValue(new File(filePath), object) ;
+            System.out.println("Object sérialisé dans " + filePath) ;
+        } catch (IOException e) {
+            e.printStackTrace() ;
+        }
+    }
+
+    public static <T> T deserializeFromJson(String filePath, class<T> clazz) {
+        try {
+            return objectMapper.readValue(new File(filePath), clazz)
+        } catch (IOException e) {
+            e.printStackTrace() ;
+            return null ;
+        }
+    }
+}
